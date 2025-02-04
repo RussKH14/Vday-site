@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 🌹</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff3366;
+            --secondary-color: #ff99b3;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(45deg, #ffcccc, #ffe6e6);
+            font-family: 'Pacifico', cursive;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .heart-animation {
+            position: fixed;
+            font-size: 1.5em;
+            animation: float 3s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            padding: 50px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+            .photo-grid img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                transition: transform 0.3s;
+            }
+
+                .photo-grid img:hover {
+                    transform: scale(1.05);
+                }
+
+        .love-letter {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+            .love-letter::before {
+                content: '💌';
+                position: absolute;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2em;
+            }
+
+        .button {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px;
+        }
+
+            .button:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 15px rgba(255,51,102,0.4);
+            }
+
+        .countdown {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin: 30px 0;
+        }
+
+        /* Caption Styles */
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: var(--primary-color);
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Add more floating hearts */
+        .hearts span {
+            position: fixed;
+            font-size: 1.5em;
+            animation: float 3s infinite;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="hearts">
+        <span style="left: 10%; animation-delay: 0s">❤️</span>
+        <span style="left: 20%; animation-delay: 1s">💖</span>
+        <span style="left: 50%; animation-delay: 2s">💝</span>
+        <span style="left: 70%; animation-delay: 3s">💘</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Will You Be My Valentine, Qi Zhen? 🌹</h1>
+        </header>
+
+        <div class="photo-grid">
+            <!-- Photo 1 -->
+            <figure>
+                <img src="images/photo1.jpg" alt="Darumaaaa">
+                <figcaption>Darumaaaa</figcaption>
+            </figure>
+            <!-- Photo 2 -->
+            <figure>
+                <img src="images/photo2.jpg" alt="Our Ghosties">
+                <figcaption>Our Ghosties</figcaption>
+            </figure>
+            <!-- Photo 3 -->
+            <figure>
+                <img src="images/photo3.jpg" alt="Temple Visit">
+                <figcaption>Temple Visit</figcaption>
+            </figure>
+        </div>
+
+        <div class="love-letter">
+            <h2>Wassup Bitchhhhhh</h2>
+            <p>I really really really like you... ✨</p>
+            <p> From the time of making this it has been 40 days since we first met.Yeah when we first met there were different intentions, but I hope we both know what our intentions are now. To be clear I do want to see you for the rest of my life.
+                As scary as that might sound just know that I am choosing you everyday of the week. I hope this doesn't scare you away but lets face whatever comes at us together ❤️</p>
+            <p>I can't wait until we're together again. I just have to wait 32 more days. In the meantime if you are free on the 14th of February, will you be my Valentine?</p>
+        </div>
+
+        <button class="button" onclick="showResponse()">Click to Answer 💌</button>
+
+        <div id="response" style="display: none;">
+            <h2>There's only one right choice btw. </h2>
+            <div class="buttons">
+                <button class="button" onclick="showSurprise('yes')">YES! 🎉</button>
+                <button class="button" onclick="showSurprise('no')">No 😢 i'm gonna cry. </button>
+            </div>
+        </div>
+
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        // Create more floating hearts
+        function createHearts() {
+            const heartsContainer = document.querySelector('.hearts');
+            const emojis = ['❤️', '💖', '💝', '💘'];
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('span');
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                heartsContainer.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        function showResponse() {
+            document.getElementById('response').style.display = 'block';
+            // Add confetti effect
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('heart-animation');
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.textContent = ['❤️', '💖', '🎉'][Math.floor(Math.random() * 3)];
+                document.body.appendChild(confetti);
+            }
+        }
+        function showSurprise(response) {
+    // Create a full-screen-like video container
+    const videoContainer = document.createElement('div');
+    videoContainer.style.position = 'fixed';
+    videoContainer.style.top = '0';
+    videoContainer.style.left = '0';
+    videoContainer.style.width = '100%';
+    videoContainer.style.height = '100%';
+    videoContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'; // Semi-transparent black background
+    videoContainer.style.display = 'flex';
+    videoContainer.style.justifyContent = 'center';
+    videoContainer.style.alignItems = 'center';
+    videoContainer.style.zIndex = '1000'; // Ensure it's on top of everything
+
+    // Create the video element
+    const video = document.createElement('video');
+    video.controls = true; // Add playback controls
+    video.style.width = '80%'; // Take up 80% of the screen width
+    video.style.maxWidth = '800px'; // Limit maximum width
+    video.style.borderRadius = '10px'; // Rounded corners
+    video.loop = true; // Loop the video
+
+    // Set the video source based on the response
+    if (response === 'yes') {
+        video.src = 'videos/yes-video.mp4'; // Replace with your "Yes" video path
+        startConfetti(); // Start confetti explosion
+    } else {
+        video.src = 'videos/no-video.mp4'; // Replace with your "No" video path
+        startRain(); // Start rain drops and crying animation
+    }
+
+    // Append the video to the container
+    videoContainer.appendChild(video);
+
+    // Append the container to the body
+    document.body.appendChild(videoContainer);
+
+    // Play the video automatically
+    video.play();
+
+    // Remove the video container and stop animations when clicked outside
+    videoContainer.addEventListener('click', (e) => {
+        if (e.target === videoContainer) {
+            videoContainer.remove();
+            stopAnimations(); // Stop confetti or rain
+        }
+    });
+}
+
+// Confetti explosion for "Yes"
+function startConfetti() {
+    const confettiContainer = document.createElement('div');
+    confettiContainer.style.position = 'fixed';
+    confettiContainer.style.top = '0';
+    confettiContainer.style.left = '0';
+    confettiContainer.style.width = '100%';
+    confettiContainer.style.height = '100%';
+    confettiContainer.style.pointerEvents = 'none'; // Allow clicks to pass through
+    confettiContainer.style.zIndex = '1001'; // Above the video
+
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.innerHTML = '🎉';
+        confetti.style.position = 'absolute';
+        confetti.style.fontSize = '24px';
+        confetti.style.color = ['#ff3366', '#ffcc00', '#00ccff', '#ff99cc'][Math.floor(Math.random() * 4)];
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.top = '-50px';
+        confetti.style.animation = `confetti-fall ${Math.random() * 3 + 2}s linear infinite`;
+        confettiContainer.appendChild(confetti);
+    }
+
+    document.body.appendChild(confettiContainer);
+
+    // Add CSS for confetti animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes confetti-fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Rain drops and crying animation for "No"
+function startRain() {
+    const rainContainer = document.createElement('div');
+    rainContainer.style.position = 'fixed';
+    rainContainer.style.top = '0';
+    rainContainer.style.left = '0';
+    rainContainer.style.width = '100%';
+    rainContainer.style.height = '100%';
+    rainContainer.style.pointerEvents = 'none'; // Allow clicks to pass through
+    rainContainer.style.zIndex = '1001'; // Above the video
+
+    for (let i = 0; i < 50; i++) {
+        const rainDrop = document.createElement('div');
+        rainDrop.innerHTML = '💧';
+        rainDrop.style.position = 'absolute';
+        rainDrop.style.fontSize = '24px';
+        rainDrop.style.color = '#00ccff';
+        rainDrop.style.left = Math.random() * 100 + '%';
+        rainDrop.style.top = '-50px';
+        rainDrop.style.animation = `rain-fall ${Math.random() * 2 + 1}s linear infinite`;
+        rainContainer.appendChild(rainDrop);
+    }
+
+    // Add crying emoji
+    const cryingEmoji = document.createElement('div');
+    cryingEmoji.innerHTML = '😢';
+    cryingEmoji.style.position = 'absolute';
+    cryingEmoji.style.fontSize = '48px';
+    cryingEmoji.style.color = '#ff3366';
+    cryingEmoji.style.top = '50%';
+    cryingEmoji.style.left = '50%';
+    cryingEmoji.style.transform = 'translate(-50%, -50%)';
+    cryingEmoji.style.animation = 'cry 2s ease-in-out infinite';
+    rainContainer.appendChild(cryingEmoji);
+
+    document.body.appendChild(rainContainer);
+
+    // Add CSS for rain and crying animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes rain-fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        @keyframes cry {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Stop all animations
+function stopAnimations() {
+    const confettiContainer = document.querySelector('div[style*="pointer-events: none"]');
+    const rainContainer = document.querySelector('div[style*="pointer-events: none"]');
+    if (confettiContainer) confettiContainer.remove();
+    if (rainContainer) rainContainer.remove();
+}
+        // Countdown timer
+        const valentinesDay = new Date('2025-02-15').getTime();
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = valentinesDay - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').innerHTML =
+                `⏳ Only ${days} days until Valentine's Day! ⏳`;
+        }, 1000);
+    </script>
+</body>
+</html>
